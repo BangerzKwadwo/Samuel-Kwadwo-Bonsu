@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Bonsu Samuel Kwadwo - Portfolio</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    /* General Styles */
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* Profile Picture */
+    #profile-pic {
+      width: 150px;
+      height: 150px;
+      border-radius: 50%;
+      border: 3px solid #333;
+      object-fit: cover;
+      margin: 20px auto;
+      display: block;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    h1,
+    h2 {
+      margin: 0;
+      text-align: center;
+    }
+
+    ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    /* Navbar Styles */
+    #navbar {
+      top: 0;
+      width: 100%;
+      position: relative;
+      background-color: #333;
+      color: white;
+      z-index: 1000;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    }
+
+    #navbar ul {
+      display: flex;
+      justify-content: center;
+      margin: 0;
+    }
+
+    #navbar li {
+      margin: 0 15px;
+    }
+
+    #navbar a {
+      color: white;
+      font-size: 1.1em;
+      padding: 10px 15px;
+      display: inline-block;
+    }
+
+    #navbar a:hover {
+      background-color: #575757;
+      border-radius: 5px;
+    }
+
+    /* Welcome Section */
+    #welcome-section {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background-color: #f4f4f4;
+      text-align: center;
+    }
+
+    #welcome-section h1 {
+      font-size: 2.5em;
+    }
+
+    #welcome-section p {
+      font-size: 1.2em;
+      color: #555;
+    }
+
+    /* About Me Section */
+    #about {
+      padding: 50px 20px;
+      background-color: #eaeaea;
+      text-align: center;
+    }
+
+    #about h2 {
+      font-size: 2em;
+      margin-bottom: 15px;
+    }
+
+    #about p {
+      font-size: 1.1em;
+      color: #333;
+      line-height: 1.6;
+    }
+
+    /* Projects Section */
+    #projects {
+      padding: 50px 20px;
+      background-color: #fff;
+    }
+
+    #projects h2 {
+      font-size: 2em;
+      margin-bottom: 20px;
+    }
+
+    .project-tile {
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      margin: 20px auto;
+      max-width: 600px;
+      padding: 15px;
+      text-align: center;
+      background-color: #f9f9f9;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .project-tile:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    }
+
+    .project-tile a {
+      color: #333;
+    }
+
+    /* Contact Section */
+    #contact {
+      padding: 50px 20px;
+      background-color: #333;
+      color: white;
+      text-align: center;
+    }
+
+    #contact h2 {
+      font-size: 2em;
+      margin-bottom: 20px;
+    }
+
+    #contact-info p {
+      font-size: 1.1em;
+      margin: 10px 0;
+    }
+
+    #contact-info a {
+      color: #66ccff;
+      text-decoration: none;
+    }
+
+    #contact-info a:hover {
+      text-decoration: underline;
+    }
+
+    /* Social Media Links */
+    #social-media p {
+      font-size: 1.2em;
+      margin: 15px 0 10px;
+    }
+
+    #social-media a {
+      font-size: 2em;
+      margin: 0 10px;
+      transition: transform 0.3s;
+    }
+
+    /* Icon Colors */
+    #social-media a[href*="facebook"] {
+      color: #1877f2;
+    }
+
+    #social-media a[href*="whatsapp"] {
+      color: #0bda57;
+    }
+
+    #social-media a[href*="instagram"] {
+      color: #dd0d34;
+    }
+
+    #social-media a[href*="twitter"] {
+      color: #1da1f2;
+    }
+
+    #social-media a[href*="linkedin"] {
+      color: #0077b5;
+    }
+
+    #social-media a[href*="github"] {
+      color: #333;
+    }
+
+    #social-media a:hover {
+      transform: scale(1.2);
+    }
+
+    /* Contact Form */
+    #contact-form {
+      margin-top: 20px;
+      max-width: 500px;
+      margin-left: auto;
+      margin-right: auto;
+      text-align: left;
+    }
+
+    #contact-form label {
+      display: block;
+      margin-bottom: 5px;
+      font-weight: bold;
+    }
+
+    #contact-form input,
+    #contact-form textarea {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 15px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      font-size: 1em;
+    }
+
+    #contact-form button {
+      display: block;
+      width: 100%;
+      padding: 10px;
+      background-color: #66ccff;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      font-size: 1.1em;
+      cursor: pointer;
+    }
+
+    #contact-form button:hover {
+      background-color: #0099cc;
+    }
+  </style>
+</head>
+
+<body>
+  <nav id="navbar">
+    <ul>
+      <li><a href="#welcome-section">Home</a></li>
+      <li><a href="#about">About Me</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- Welcome Section -->
+  <section id="welcome-section">
+    <h1>Welcome to My Portfolio</h1>
+    <h1>Coding the Future, One Project at a Time</h1>
+    <p>Hello, I'm <b>Bonsu Samuel Kwadwo</b>.</p>
+    <p>
+      I'm a passionate web developer with a love for crafting intuitive and
+      dynamic web experiences. Explore my portfolio to see the projects I've
+      built and the skills I bring to the table!
+    </p>
+    <img
+      id="profile-pic"
+      src="pt.jpg.jpg"
+      alt="Profile picture of Bonsu Samuel Kwadwo"
+    />
+  </section>
+
+  <!-- About Me Section -->
+  <section id="about">
+    <h2>About Me</h2>
+    <p>
+      Hi there! I'm Bonsu Samuel Kwadwo, a creative and enthusiastic web
+      developer with a passion for front-end design and user experience. I
+      specialize in creating responsive, visually appealing websites that meet
+      both user and business needs. With a strong foundation in HTML, CSS, and
+      JavaScript, I continuously strive to expand my skills and deliver
+      exceptional digital experiences.
+    </p>
+    <p>
+      When I'm not coding, you can find me exploring tech blogs, learning new
+      frameworks, or indulging in my love for photography. I'm always looking
+      to collaborate on exciting projects, so feel free to reach out!
+    </p>
+    <img
+      id="certificate-pic"
+      src="my cert.png"
+      alt="Image of my certificate"
+    />
+  </section>
+
+  <!-- Projects Section -->
+  <section id="projects">
+    <h2>My Projects</h2>
+    <div class="project-tile">
+      <a href="https://github.com/BangerzKwadwo" target="_blank" rel="noopener noreferrer">
+        <h3>Turning Ideas Into Reality</h3>
+        <p>Browse through my portfolio to see how I transform concepts into fully functional, user-friendly websites and applications.</p>
+      </a>
+    </div>
+    <div class="project-tile">
+      <a href="https://github.com/BangerzKwadwo" target="_blank" rel="noopener noreferrer">
+        <h3>Welcome to My Creative Space</h3>
+        <p>I specialize in front-end development, UI/UX design, and responsive web solutions. Explore my work!</p>
+      </a>
+    </div>
+    <div class="project-tile">
+      <a href="https://github.com/BangerzKwadwo" target="_blank" rel="noopener noreferrer">
+        <h3>From Passion to Profession</h3>
+        <p>Explore my journey as a web developer and discover projects that reflect my growth and dedication.</p>
+      </a>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact">
+    <h2>Contact Me</h2>
+    <p>If you'd like to work together or just have a chat, feel free to reach out:</p>
+
+    <!-- Contact Information -->
+    <div id="contact-info">
+      <p><strong>Email:</strong> <a href="mailto:bonsusamuelkwadwo@example.com">kwadwobangerz@gmail.com</a></p>
+      <p><strong>Phone:</strong> <a href="tel:+0599483883">+233 599 48 3883</a></p>
+    </div>
+
+    <!-- Social Media Links -->
+    <div id="social-media">
+      <p>Follow me:</p>
+      <a href="https://github.com/BangerzKwadwo" target="_blank" rel="noopener noreferrer" title="GitHub"><i class="fab fa-github"></i></a>
+      <a href="https://linkedin.com/in/BangerzKwadwo" target="_blank" rel="noopener noreferrer" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+      <a href="https://twitter.com/BangerzKwadwo" target="_blank" rel="noopener noreferrer" title="Twitter"><i class="fab fa-twitter"></i></a>
+      <a href="https://www.facebook.com/share/VJqB8AecEBcjqdZd/?mibextid=LQQJ4d" target="_blank" rel="noopener noreferrer" title="Facebook"><i class="fab fa-facebook"></i></a>
+      <a href="https://wa.me/233599483883" target="_blank" rel="noopener noreferrer" title="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+      <a href="https://instagram.com/kwadwo_bangerz" target="_blank" rel="noopener noreferrer" title="Instagram"><i class="fab fa-instagram"></i></a>
+    </div>
+
+    <!-- Contact Form -->
+    <form id="contact-form" action="https://formsubmit.co/your-email@example.com" method="POST">
+      <label for="name">Name:</label>
+      <input type="text" id="name" name="name" placeholder="Your Name" required />
+
+      <label for="email">Email:</label>
+      <input type="email" id="email" name="email" placeholder="Your Email" required />
+
+      <label for="message">Message:</label>
+      <textarea id="message" name="message" placeholder="Your Message" rows="4" required></textarea>
+
+      <button type="submit">Send Message</button>
+    </form>
+  </section>
+</body>
+</html>
